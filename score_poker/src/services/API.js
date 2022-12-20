@@ -13,3 +13,24 @@ export const fetchCreatToken = async (name, password) => {
   saveToken(data);
   return data;
 };
+
+export const fetchGetConfig = async () => {
+  const config = await scoreFetch.get('/config', {
+    headers: getToken(),
+  });
+  return config;
+};
+
+export const fetchCreateConfig = async (body) => {
+  const config = await scoreFetch.post('/config', body, {
+    headers: getToken(),
+  });
+  return config;
+};
+
+export const fetchUpDate = async (body) => {
+  const config = await scoreFetch.put('/config', body, {
+    headers: getToken(),
+  });
+  return config;
+};

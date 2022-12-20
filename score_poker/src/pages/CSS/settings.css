@@ -1,0 +1,22 @@
+.containerFild fieldset{  
+  margin-top: 20px;
+  margin-bottom: 40px;
+
+}
+.containerFild legend {  
+  text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+.containerFild fieldset label {
+  display: flex;
+  align-items: center; 
+  margin-bottom: 5px;
+  color: rgb(228, 228, 228);
+}
+
+.containerFild fieldset label input{
+  width: 60px;
+  margin-right: 10px;
+  text-align: center;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
