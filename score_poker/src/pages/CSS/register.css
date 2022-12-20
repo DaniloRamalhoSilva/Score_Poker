@@ -1,0 +1,9 @@
+.containerRegister {
+  margin-top: 20px;
+}
+
+.containerRegister label{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
