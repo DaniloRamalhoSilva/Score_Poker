@@ -8,8 +8,10 @@
 .containerLogin img {
  position: absolute;
  top: 0;
+ left: 0;
  z-index: -1;
  width: 100%;
+ max-width: 500px;
  opacity: 70%;
 }
 .containerLabels{
@@ -26,6 +28,7 @@
 
 .containerLabels label input{
   padding: 6px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .containerLogin h1{
@@ -34,4 +37,5 @@
   top: 30%;
   left: 55%;
   font-size: 2.5rem;
+  text-shadow: black 0.1em 0.1em 0.2em
 }

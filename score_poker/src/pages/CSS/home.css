@@ -1,3 +1,4 @@
+/* Tabela Ranking */
 .gridCard {
  text-align: center;
  color: rgb(34, 17, 1); 
@@ -49,6 +50,12 @@
   border-top-left-radius: 30px;  
 }
 
+/* ImagemPodio */
+.containerPodio h1{
+  text-shadow: black 0.1em 0.1em 0.2em
+
+}
+
 .containerImage{
   position: relative;
   width: 100%;
@@ -69,7 +76,7 @@
 .i1{
   width: 26%;
   height: 44%;
-  border: solid 2px rgb(241, 208, 17);
+  box-shadow: gold 0.1em 0.1em 0.2em;
   position: absolute; 
   z-index: 2;
   top: 27%;
@@ -80,7 +87,7 @@
 .i2{
   width: 21%;
   height: 34%;
-  border: solid 2px rgb(191, 226, 247);
+  box-shadow: gray 0.1em 0.1em 0.2em;
   position: absolute; 
   z-index: 3;
   top: 42%;
@@ -91,7 +98,7 @@
 .i3{
   width: 19%;
   height: 32%;
-  border: solid 2px rgb(238, 172, 29);
+  box-shadow: rgb(255, 187, 0) 0.1em 0.1em 0.2em;
   position: absolute; 
   z-index: 4;
   top: 49%;

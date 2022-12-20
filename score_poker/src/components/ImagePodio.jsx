@@ -8,7 +8,7 @@ const AVATAR = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgUNaoFwOO
 function ImagePodio({ rank }) {
   return (
     rank.length > 3 && (
-      <Container className="mt-4">
+      <Container className="containerPodio mt-4">
         <h1>Ranking</h1>
         <div className="containerImage">
           <img className="imgPodio" src={imgPdodio} alt="" />
