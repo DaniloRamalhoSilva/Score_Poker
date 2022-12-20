@@ -21,6 +21,7 @@ function Home() {
           // ordenar
           setRank(res.data);
         }).catch(({ response }) => {
+          if (response === undefined) setIsError({ message: 'Sem conexão com banco de dados' });
           if (response.data.message === 'Expired or invalid token') setIsError(response.data);
           if (response.data.message === 'Token not found') navigate('/login');
         });
