@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Alert from 'react-bootstrap/Alert';
+import { Button, Container } from 'react-bootstrap';
 import { fetchCreatToken } from '../services/API';
+import AlertM from '../components/Alert';
+import imgLogin from '../../public/login.png';
+
+import './CSS/login.css';
 
 function Login() {
   const [isError, setIsError] = useState(false);
@@ -31,11 +35,12 @@ function Login() {
   }
 
   return (
-    <div>
-      <h4>LOGIN</h4>
+    <Container className="containerLogin">
+      <img src={imgLogin} alt="" />
+      <h1>LOGIN</h1>
       <div className="login-container">
         <form onSubmit={handleSubmit} className="form">
-          <div className="name">
+          <Container className="containerLabels">
             <label htmlFor="name">
               <input
                 type="text"
@@ -57,17 +62,15 @@ function Login() {
               />
             </label>
 
-          </div>
-          <button type="submit">Logar</button>
+          </Container>
+          <Container className="d-grid gap-2 mt-3 mb-2">
+            <Button type="submit" variant="dark">Logar</Button>
+          </Container>
         </form>
       </div>
-      {isError && (
-        <Alert variant="danger" onClose={() => { setIsError(false); setName(''); setPassword(''); }} dismissible>
-          <Alert.Heading>{isError.message}</Alert.Heading>
-        </Alert>
-      ) }
-    </div>
+      <AlertM message={isError.message} func={() => { setIsError(false); setName(''); setPassword(''); }} type="danger" isTrue={isError} />
 
+    </Container>
   );
 }
 

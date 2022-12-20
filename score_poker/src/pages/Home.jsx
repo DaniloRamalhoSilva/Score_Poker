@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Alert from 'react-bootstrap/Alert';
+import { Button, Container } from 'react-bootstrap';
 import { fetchFindOverallRating } from '../services/API';
 import GrideRanke from '../components/GridRanke';
 import Navigationbar from '../components/Navigationbar';
+import AlertM from '../components/Alert';
+import ImagePodio from '../components/ImagePodio';
+
+import './CSS/home.css';
 
 function Home() {
   const navigate = useNavigate();
@@ -14,6 +18,7 @@ function Home() {
     const fetchData = () => {
       fetchFindOverallRating()
         .then((res) => {
+          // ordenar
           setRank(res.data);
         }).catch(({ response }) => {
           if (response.data.message === 'Expired or invalid token') setIsError(response.data);
@@ -26,14 +31,21 @@ function Home() {
   return (
     <div>
       {isError ? (
-        <Alert variant="danger" onClose={() => navigate('/login')} dismissible>
-          <Alert.Heading>{isError.message}</Alert.Heading>
-        </Alert>
+        <AlertM message={isError.message} func={() => navigate('/login')} type="Warning" isTrue={isError} />
       ) : (
         rank.length !== 0 && (
         <div>
           <Navigationbar />
-          <GrideRanke rank={rank} />
+          <ImagePodio rank={rank} />
+          <GrideRanke className="mt-2" rank={rank} />
+          <Container className="d-grid gap-2 mt-2 mb-0">
+            <Button type="submit" variant="dark">
+              <img className="icon" alt="" src="/copas.png" />
+              Nova Mesa
+              <img className="icon" alt="" src="/copas.png" />
+
+            </Button>
+          </Container>
         </div>
         )
       )}

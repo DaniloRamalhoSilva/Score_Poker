@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
 
 const router = createBrowserRouter([
   {

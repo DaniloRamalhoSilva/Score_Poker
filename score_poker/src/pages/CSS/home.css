@@ -1,0 +1,106 @@
+.gridCard {
+ text-align: center;
+ color: rgb(34, 17, 1); 
+ table-layout: fixed;
+  box-sizing: border-box;
+  height: 52vh;
+}
+.gridCard thead th {
+  background-color:  rgb(4, 70, 53);
+  position: sticky; 
+  top: 0; 
+  z-index: 1; 
+}
+
+.gridCard tbody th { 
+  position: sticky; 
+  left: 0; 
+}
+
+.hederGrid{
+  color: white;
+  font-size: 0.75rem;  
+}
+
+.cardd {
+  border: solid 2px rgb(4, 70, 53);;
+  background-color: rgba(127, 255, 212, 0.384);
+} 
+
+.cardd div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardd .img {
+  border-radius: 100%;
+  min-width: 30px;
+  max-width: 60px;
+}
+ 
+.cardd td:last-child{ 
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+.cardd th{ 
+  border-bottom-left-radius: 30px;
+  border-top-left-radius: 30px;  
+}
+
+.containerImage{
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+}
+
+.imgPodio{  
+  z-index: 0;
+  width: 100%;
+  max-width: 500px;
+ 
+}
+
+.i{
+  border-radius: 100%;
+}
+
+.i1{
+  width: 26%;
+  height: 44%;
+  border: solid 2px rgb(241, 208, 17);
+  position: absolute; 
+  z-index: 2;
+  top: 27%;
+  left: 37%; 
+  
+}
+
+.i2{
+  width: 21%;
+  height: 34%;
+  border: solid 2px rgb(191, 226, 247);
+  position: absolute; 
+  z-index: 3;
+  top: 42%;
+  left: 13%; 
+
+}
+
+.i3{
+  width: 19%;
+  height: 32%;
+  border: solid 2px rgb(238, 172, 29);
+  position: absolute; 
+  z-index: 4;
+  top: 49%;
+  left: 66%; 
+}
+
+.icon{
+  width: 30px;
+  height: 30px;
+  margin-left: 35px;
+  margin-right: 35px;
+}

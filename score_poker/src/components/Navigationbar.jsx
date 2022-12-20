@@ -6,6 +6,7 @@ function Navigationbar() {
     <div>
       <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark">
         <Container>
+          <img className="icon" alt="" src="/poker.svg" />
           <Navbar.Brand href="/">Familia do Poker</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" data-bs-toggle="collapse" data-bs-target="#navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
