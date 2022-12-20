@@ -23,9 +23,10 @@ function Login() {
         navigate('/');
       })
       .catch(({ response }) => {
-        if (response === undefined) setIsError({ message: 'Sem conexão com banco de dados' });
-        if (response.data.message === 'invalid login or password') setIsError(response.data);
-        if (response.data.message === 'Some required fields are missing') setIsError(response.data);
+        if (response === undefined) return setIsError({ message: 'Sem conexão com banco de dados' });
+        if (response.data.message === 'invalid login or password') return setIsError(response.data);
+        if (response.data.message === 'Some required fields are missing') return setIsError(response.data);
+        return setIsError({ message: 'unexpected error' });
       });
   };
 

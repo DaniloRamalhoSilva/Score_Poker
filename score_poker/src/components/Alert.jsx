@@ -20,16 +20,6 @@ function AlertM({
   );
 }
 
-/* function AlertM() {
-  const navigate = useNavigate();
-
-  return (
-    <Alert variant="danger" onClose={() => navigate('/login')} dismissible>
-      <Alert.Heading>{message}</Alert.Heading>
-    </Alert>
-  );
-} */
-
 AlertM.propTypes = {
   message: propTypes.string.isRequired,
   func: propTypes.func.isRequired,

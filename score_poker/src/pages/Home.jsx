@@ -21,9 +21,10 @@ function Home() {
           // ordenar
           setRank(res.data);
         }).catch(({ response }) => {
-          if (response === undefined) setIsError({ message: 'Sem conexão com banco de dados' });
-          if (response.data.message === 'Expired or invalid token') setIsError(response.data);
-          if (response.data.message === 'Token not found') navigate('/login');
+          if (response === undefined) return setIsError({ message: 'Sem conexão com banco de dados' });
+          if (response.data.message === 'Expired or invalid token') return setIsError(response.data);
+          if (response.data.message === 'Token not found') return navigate('/login');
+          return setIsError({ message: 'unexpected error' });
         });
     };
     fetchData();
@@ -36,7 +37,7 @@ function Home() {
       ) : (
         rank.length !== 0 && (
         <div>
-          <Navigationbar />
+          <Navigationbar show textHeader="Familia do Poker" />
           <ImagePodio rank={rank} />
           <GrideRanke className="mt-2" rank={rank} />
           <Container className="d-grid gap-2 mt-2 mb-0">
