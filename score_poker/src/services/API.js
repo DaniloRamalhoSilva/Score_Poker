@@ -34,3 +34,10 @@ export const fetchUpDate = async (body) => {
   });
   return config;
 };
+
+export const fetchCreateUser = async (body) => {
+  const user = await scoreFetch.post('/user', body, {
+    headers: getToken(),
+  });
+  return user;
+};
