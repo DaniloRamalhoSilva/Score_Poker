@@ -5,6 +5,8 @@ import App from './App';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Settings from './pages/Settings';
+import Register from './pages/Register';
+import Perfil from './pages/Perfil';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
       {
         path: '/settings',
         element: <Settings />,
+      },
+      {
+        path: '/register',
+        element: <Register />,
+      },
+      {
+        path: '/perfil/:id',
+        element: <Perfil />,
       },
     ],
   },
