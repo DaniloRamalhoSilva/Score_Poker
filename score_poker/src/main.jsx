@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import Settings from './pages/Settings';
 import Register from './pages/Register';
 import Perfil from './pages/Perfil';
+import PlayersTable from './pages/PlayersTable';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: '/perfil/:id',
         element: <Perfil />,
+      },
+      {
+        path: '/table',
+        element: <PlayersTable />,
       },
     ],
   },

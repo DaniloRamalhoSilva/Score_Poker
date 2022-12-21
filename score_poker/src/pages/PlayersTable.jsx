@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Container } from 'react-bootstrap';
-import { fetchFindOverallRating } from '../services/API';
-import GrideRanke from '../components/GridRanke';
+import { fetchGetAllPlayers } from '../services/API';
+import GridePlayers from '../components/GridPlayers';
 import Navigationbar from '../components/Navigationbar';
 import AlertM from '../components/Alert';
-import ImagePodio from '../components/ImagePodio';
 
-import './CSS/home.css';
+import './CSS/playersTable.css';
 
-function Home() {
+function PlayersTable() {
   const navigate = useNavigate();
   const [isError, setIsError] = useState(false);
-  const [rank, setRank] = useState([]);
+  const [players, setPlayers] = useState([]);
 
   useEffect(() => {
     const fetchData = () => {
-      fetchFindOverallRating()
+      fetchGetAllPlayers()
         .then((res) => {
-          setRank(res.data);
+          setPlayers(res.data);
+          console.log(res.data);
         }).catch(({ response }) => {
           if (response === undefined) return setIsError({ message: 'Sem conexão com banco de dados' });
           if (response.data.message === 'Expired or invalid token') return setIsError(response.data);
@@ -31,18 +31,16 @@ function Home() {
 
   return (
     <div>
-      <Navigationbar show textHeader="Familia do Poker" />
+      <Navigationbar show textHeader="Jogadores" />
       <AlertM message={isError.message} func={() => navigate('/login')} type="Warning" isTrue={isError} />
-      {rank.length !== 0 ? (
-        <div>
-          <ImagePodio rank={rank} />
-          <GrideRanke className="mt-2" rank={rank} />
+      {players.length !== 0 ? (
+        <div className="mt-4">
+          <GridePlayers players={players} />
           <Container className="d-grid gap-2 mt-2 mb-0">
-            <Button type="button" onClick={() => navigate('/table')} variant="dark">
+            <Button type="submit" variant="dark">
               <img className="icon" alt="" src="/copas.png" />
-              Nova Mesa
+              Iniciar Partida
               <img className="icon" alt="" src="/copas.png" />
-
             </Button>
           </Container>
         </div>
@@ -55,4 +53,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default PlayersTable;

@@ -48,3 +48,10 @@ export const fetchGetUser = async (id) => {
   });
   return user;
 };
+
+export const fetchGetAllPlayers = async () => {
+  const user = await scoreFetch.get('/user', {
+    headers: getToken(),
+  });
+  return user;
+};
