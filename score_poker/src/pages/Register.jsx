@@ -28,7 +28,6 @@ function Register() {
       fetchCreateUser(
         { name, password, image },
       ).then((res) => {
-        console.log(res);
         setId(res.data.id);
         setIsSuccess({ message: 'Successfully changed' });
       }).catch(({ response }) => {

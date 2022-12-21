@@ -17,24 +17,14 @@ function GrideRanke({ rank }) {
           </tr>
         </thead>
         <tbody className="align-middle">
-          { rank.length !== 0 && rank.map((user, index) => (
-            <CardUserScore key={user.id} user={user} index={index} />
+          { rank.length !== 0 && rank.map((user) => (
+            <CardUserScore key={user.id} user={user} />
           ))}
         </tbody>
       </table>
     </Container>
   );
 }
-/* <div>
-      <span>Posição |</span>
-      <span> pontos |</span>
-      <span> Desempenho do gropo |</span>
-      <span> Desempenho Individual |</span>
-      <span> Media Final</span>
-      { rank.length !== 0 && rank.map((user) => (
-        <CardUserScore key={user.id} user={user} />
-      ))}
-    </div> */
 GrideRanke.propTypes = {
   rank: propTypes.arrayOf(
     propTypes.shape().isRequired,
