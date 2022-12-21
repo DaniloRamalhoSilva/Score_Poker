@@ -18,7 +18,6 @@ function Home() {
     const fetchData = () => {
       fetchFindOverallRating()
         .then((res) => {
-          // ordenar
           setRank(res.data);
         }).catch(({ response }) => {
           if (response === undefined) return setIsError({ message: 'Sem conexão com banco de dados' });
@@ -32,12 +31,10 @@ function Home() {
 
   return (
     <div>
-      {isError ? (
-        <AlertM message={isError.message} func={() => navigate('/login')} type="Warning" isTrue={isError} />
-      ) : (
-        rank.length !== 0 && (
+      <Navigationbar show textHeader="Familia do Poker" />
+      <AlertM message={isError.message} func={() => navigate('/login')} type="Warning" isTrue={isError} />
+      {rank.length !== 0 ? (
         <div>
-          <Navigationbar show textHeader="Familia do Poker" />
           <ImagePodio rank={rank} />
           <GrideRanke className="mt-2" rank={rank} />
           <Container className="d-grid gap-2 mt-2 mb-0">
@@ -49,7 +46,10 @@ function Home() {
             </Button>
           </Container>
         </div>
-        )
+      ) : (
+        <Container>
+          <p>Nenhum jogador cadastrado</p>
+        </Container>
       )}
     </div>
   );

@@ -11,16 +11,16 @@ function CardUserScore({ user }) {
       <th scope="row">
         <Link className="link" to={`/perfil/${user.id}`}>
           <div>
-            {`${user.position}. `}
-            <img className="img" src={(user.image) ? user.image : AVATAR} alt="foto" />
+            {`${user.position}.`}
+            <img className="img" src={(user.image) || AVATAR} alt="foto" />
           </div>
           <span>{user.name}</span>
         </Link>
       </th>
       <td>{user.scored}</td>
-      <td>{(user.groupUse) ? user.groupUse : 0 }</td>
-      <td>{(user.individualUse) ? user.individualUse : 0 }</td>
-      <td>{(user.rank) ? user.rank : 0 }</td>
+      <td>{`${user.groupUse.toFixed(1)}%` }</td>
+      <td>{`${user.individualUse.toFixed(1)}%` }</td>
+      <td>{`${user.rank.toFixed(1)}%` }</td>
     </tr>
   );
 }
