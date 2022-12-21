@@ -78,6 +78,15 @@ function Settings() {
     setNameBtn('Salvar');
   };
 
+  const exit = () => {
+    if (nameBtn === 'Salvar') {
+      return setExitWEarning({
+        message: 'As alteraçoes não foram salvas',
+      });
+    }
+    return navigate('/');
+  };
+
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -90,7 +99,7 @@ function Settings() {
       <AlertM message={isError.message} func={() => navigate('/login')} type="Warning" isTrue={isError} />
     ) : (
       <div>
-        <Navigationbar textHeader="Configuração" />
+        <Navigationbar textHeader="Configuração" show={false} />
         <form onSubmit={handleSubmit}>
           <Container className="containerFild">
             <fieldset>
@@ -166,16 +175,16 @@ function Settings() {
             </Button>
             <Button
               type="button"
-              onClick={() => setExitWEarning({ message: 'As alteraçoes não foram salvas' })}
+              onClick={exit}
               variant="dark"
             >
               Sair
             </Button>
           </Container>
         </form>
-        <AlertM message={fildError.message} func={() => setFildError(false)} type="Warning" isTrue={fildError} />
-        <AlertM message={isSuccess.message} func={() => setIsSuccess(false)} type="Success" isTrue={isSuccess} />
-        <AlertM message={exitWEarning.message} func={() => navigate('/')} type="Warning" isTrue={exitWEarning} />
+        <AlertM message={(fildError) ? fildError.message : ''} func={() => setFildError(false)} type="Warning" isTrue={fildError} />
+        <AlertM message={(isSuccess) ? isSuccess.message : ''} func={() => setIsSuccess(false)} type="Success" isTrue={isSuccess} />
+        <AlertM message={(exitWEarning) ? exitWEarning.message : ''} func={() => navigate('/')} type="Warning" isTrue={exitWEarning} />
       </div>
     )
   );
