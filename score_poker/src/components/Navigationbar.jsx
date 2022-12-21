@@ -14,6 +14,7 @@ function Navigationbar({ show, textHeader }) {
           { show && (
           <Navbar.Collapse id="navbarScroll">
             <Nav className="me-auto">
+              <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/register">Cadastro</Nav.Link>
               <Nav.Link href="/settings">Configuração</Nav.Link>
               <Nav.Link href="/login">Sair</Nav.Link>
