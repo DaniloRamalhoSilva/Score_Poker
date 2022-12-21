@@ -41,3 +41,10 @@ export const fetchCreateUser = async (body) => {
   });
   return user;
 };
+
+export const fetchGetUser = async (id) => {
+  const user = await scoreFetch.get(`/user/${Number(id)}`, {
+    headers: getToken(),
+  });
+  return user;
+};
