@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Container } from 'react-bootstrap';
 import { fetchGetConfig, fetchCreateConfig, fetchUpDate } from '../services/API';
@@ -6,6 +6,7 @@ import AlertM from '../components/Alert';
 import Navigationbar from '../components/Navigationbar';
 
 import './CSS/settings.css';
+import ScoreAppProvider from '../context/ScoreAppProvider';
 
 function Settings() {
   const navigate = useNavigate();
@@ -15,20 +16,31 @@ function Settings() {
   const [isDisabled, setIsDisabled] = useState(true);
   const [exitWEarning, setExitWEarning] = useState(false);
   const [nameBtn, setNameBtn] = useState('Editar');
+
   const [pointsFirst, setPointsFirst] = useState(10);
   const [pointsSecond, setPointsSecond] = useState(5);
   const [pointsThird, setPointsThird] = useState(2);
   const [minUsers, setMinUsers] = useState(3);
+
+  const { setConfif } = useContext(ScoreAppProvider);
+
+  const setVar = (res) => {
+    setPointsFirst(res.data.pointsFirst);
+    setPointsSecond(res.data.pointsSecond);
+    setPointsThird(res.data.pointsThird);
+    setMinUsers(res.data.minUsers);
+    setConfif({
+      pointsFirst, pointsSecond, pointsThird, minUsers,
+    });
+  };
 
   useEffect(() => {
     const createConfig = () => {
       fetchCreateConfig({
         pointsFirst, pointsSecond, pointsThird, minUsers,
       }).then((res) => {
-        setPointsFirst(res.data.pointsFirst);
-        setPointsSecond(res.data.pointsSecond);
-        setPointsThird(res.data.pointsThird);
-        setMinUsers(res.data.minUsers);
+        setVar(res);
+        setIsSuccess({ message: 'Foi aplicado uma configuração padrão, com sucesso!' });
       }).catch(({ response }) => {
         if (response.data.message === 'Some required fields are missing') return setFildError(response.data);
         return setIsError({ message: 'unexpected error' });
@@ -38,10 +50,7 @@ function Settings() {
     const fetchData = () => {
       fetchGetConfig()
         .then((res) => {
-          setPointsFirst(res.data.pointsFirst);
-          setPointsSecond(res.data.pointsSecond);
-          setPointsThird(res.data.pointsThird);
-          setMinUsers(res.data.minUsers);
+          setVar(res);
         }).catch(({ response }) => {
           if (response === undefined) return setIsError({ message: 'Sem conexão com banco de dados' });
           if (response.data.message === 'Expired or invalid token') return setIsError(response.data);
@@ -58,10 +67,7 @@ function Settings() {
     fetchUpDate({
       pointsFirst, pointsSecond, pointsThird, minUsers,
     }).then((res) => {
-      setPointsFirst(res.data.pointsFirst);
-      setPointsSecond(res.data.pointsSecond);
-      setPointsThird(res.data.pointsThird);
-      setMinUsers(res.data.minUsers);
+      setVar(res);
       setIsSuccess({ message: 'Successfully changed' });
       setIsDisabled(true);
       setNameBtn('Editar');
