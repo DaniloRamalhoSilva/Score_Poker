@@ -4,12 +4,12 @@ import ScoreAppContext from './ScoreAppContext';
 
 function ScoreAppProvider({ children }) {
   const [playesTable, setPlayesTable] = useState([]);
-  const [config, setConfif] = useState();
+  const [config, setConfig] = useState();
 
   const context = useMemo(() => ({
     playesTable,
     config,
-    setConfif,
+    setConfig,
     setPlayesTable,
   }), [
     playesTable,

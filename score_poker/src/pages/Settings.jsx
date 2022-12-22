@@ -2,11 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Container } from 'react-bootstrap';
 import { fetchGetConfig, fetchCreateConfig, fetchUpDate } from '../services/API';
+
 import AlertM from '../components/Alert';
 import Navigationbar from '../components/Navigationbar';
 
+import SocoreAppContext from '../context/ScoreAppContext';
+
 import './CSS/settings.css';
-import ScoreAppProvider from '../context/ScoreAppProvider';
 
 function Settings() {
   const navigate = useNavigate();
@@ -22,14 +24,14 @@ function Settings() {
   const [pointsThird, setPointsThird] = useState(2);
   const [minUsers, setMinUsers] = useState(3);
 
-  const { setConfif } = useContext(ScoreAppProvider);
+  const { setConfig } = useContext(SocoreAppContext);
 
   const setVar = (res) => {
     setPointsFirst(res.data.pointsFirst);
     setPointsSecond(res.data.pointsSecond);
     setPointsThird(res.data.pointsThird);
     setMinUsers(res.data.minUsers);
-    setConfif({
+    setConfig({
       pointsFirst, pointsSecond, pointsThird, minUsers,
     });
   };
