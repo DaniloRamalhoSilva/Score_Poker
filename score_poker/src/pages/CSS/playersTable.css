@@ -34,9 +34,9 @@ margin-bottom: 10px;
 
 .tablePlayers img {
   border-radius: 100%;
-  margin-left: 5px;
+  margin-left: 8px;
   margin-right: 8px;
   min-width: 10px;
   max-width: 30px;
-  max-height: 50px;
+  max-height: 30px;
 }

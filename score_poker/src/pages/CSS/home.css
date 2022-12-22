@@ -4,7 +4,7 @@
  color: rgb(34, 17, 1); 
  table-layout: fixed;
   box-sizing: border-box;
-  height: 52vh;
+  height: 45vh;
 }
 .gridCard thead th {
   background-color:  rgb(4, 70, 53);
@@ -45,7 +45,7 @@
   border-radius: 100%;
   min-width: 30px;
   max-width: 50px;
-  max-height: 50px;
+  max-height: 40px;
 }
  
 .cardd td:last-child{ 

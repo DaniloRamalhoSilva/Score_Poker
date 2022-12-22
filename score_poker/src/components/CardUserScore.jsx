@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import propTypes from 'prop-types';
-
-const AVATAR = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgUNaoFwOOa3sOnMoc8CVUJ65bhS822etxVQ&usqp=CAU';
+import { AVATAR } from '../services/varUteis';
 
 function CardUserScore({ user }) {
   return (
@@ -14,7 +13,7 @@ function CardUserScore({ user }) {
             {`${user.position}.`}
             <img className="img" src={(user.image) || AVATAR} alt="foto" />
           </div>
-          <span>{user.name}</span>
+          <span>{user.name.split(' ')[0]}</span>
         </Link>
       </th>
       <td>{user.scored}</td>

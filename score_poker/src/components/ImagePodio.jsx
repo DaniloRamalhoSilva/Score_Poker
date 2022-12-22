@@ -2,8 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { Container } from 'react-bootstrap';
 import imgPdodio from '../../public/podio.png';
-
-const AVATAR = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgUNaoFwOOa3sOnMoc8CVUJ65bhS822etxVQ&usqp=CAU';
+import { AVATAR } from '../services/varUteis';
 
 function ImagePodio({ rank }) {
   return (

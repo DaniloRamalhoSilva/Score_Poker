@@ -18,7 +18,6 @@ function PlayersTable() {
       fetchGetAllPlayers()
         .then((res) => {
           setPlayers(res.data);
-          console.log(res.data);
         }).catch(({ response }) => {
           if (response === undefined) return setIsError({ message: 'Sem conexão com banco de dados' });
           if (response.data.message === 'Expired or invalid token') return setIsError(response.data);
