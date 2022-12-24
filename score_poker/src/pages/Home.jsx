@@ -33,28 +33,23 @@ function Home() {
     <div>
       <Navigationbar show textHeader="Familia do Poker" />
       <AlertM message={isError.message} func={() => navigate('/login')} type="Warning" isTrue={isError} />
-      {rank.length !== 0 ? (
-        <div>
-          <ImagePodio rank={rank} />
-          <GrideRanke className="mt-2" rank={rank} />
-          <Container className="d-grid gap-2 mt-2 mb-3">
-            <Button type="button" onClick={() => navigate('/table')} variant="dark">
-              <img className="icon" alt="" src="/copas.png" />
-              Nova Mesa
-              <img className="icon" alt="" src="/copas.png" />
-            </Button>
-            <Button type="button" onClick={() => navigate('/table/open')} variant="dark">
-              <img className="icon" alt="" src="/copas.png" />
-              Mesas Ativas
-              <img className="icon" alt="" src="/copas.png" />
-            </Button>
-          </Container>
-        </div>
-      ) : (
-        <Container>
-          <p>Nenhum jogador cadastrado</p>
-        </Container>
-      )}
+      <Container className="title">
+        <h1>Ranking</h1>
+      </Container>
+      <ImagePodio rank={rank} />
+      <GrideRanke className="mt-2" rank={rank} />
+      <Container className="d-grid gap-2 mt-2 mb-3">
+        <Button type="button" onClick={() => navigate('/table')} variant="dark">
+          <img className="icon" alt="" src="/copas.png" />
+          Nova Mesa
+          <img className="icon" alt="" src="/copas.png" />
+        </Button>
+        <Button type="button" onClick={() => navigate('/table/open')} variant="dark">
+          <img className="icon" alt="" src="/copas.png" />
+          Mesas Ativas
+          <img className="icon" alt="" src="/copas.png" />
+        </Button>
+      </Container>
     </div>
   );
 }

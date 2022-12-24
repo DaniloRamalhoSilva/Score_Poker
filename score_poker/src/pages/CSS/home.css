@@ -58,12 +58,16 @@
   border-top-left-radius: 30px;  
 }
 
-/* ImagemPodio */
-.containerPodio h1{
-  text-shadow: black 0.1em 0.1em 0.2em
-
+.title {
+  margin-top: 20px; 
 }
+ 
+.title h1{
+  text-shadow: black 0.1em 0.1em 0.2em;
+}
+ 
 
+/* ImagemPodio */
 .containerImage{
   position: relative;
   width: 100%;

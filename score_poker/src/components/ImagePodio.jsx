@@ -6,8 +6,7 @@ import { AVATAR } from '../services/varUteis';
 
 function ImagePodio({ rank }) {
   return (
-    <Container className="containerPodio mt-4">
-      <h1>Ranking</h1>
+    <Container className="containerPodio mt-2">
       <div className="containerImage">
         <img className="imgPodio" src={imgPdodio} alt="" />
         { rank.length > 0 && (<img className="i i1" src={(rank[0].image) ? rank[0].image : AVATAR} alt="foto" />) }

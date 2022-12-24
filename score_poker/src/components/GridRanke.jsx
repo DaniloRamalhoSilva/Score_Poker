@@ -17,9 +17,13 @@ function GrideRanke({ rank }) {
           </tr>
         </thead>
         <tbody className="align-middle">
-          { rank.length !== 0 && rank.map((user) => (
+          { rank.length !== 0 ? rank.map((user) => (
             <CardUserScore key={user.id} user={user} />
-          ))}
+          )) : (
+            <Container>
+              <p>Nenhum jogador cadastrado</p>
+            </Container>
+          )}
         </tbody>
       </table>
     </Container>
