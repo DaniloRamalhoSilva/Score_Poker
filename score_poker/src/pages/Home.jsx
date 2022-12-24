@@ -37,12 +37,16 @@ function Home() {
         <div>
           <ImagePodio rank={rank} />
           <GrideRanke className="mt-2" rank={rank} />
-          <Container className="d-grid gap-2 mt-2 mb-0">
+          <Container className="d-grid gap-2 mt-2 mb-3">
             <Button type="button" onClick={() => navigate('/table')} variant="dark">
               <img className="icon" alt="" src="/copas.png" />
               Nova Mesa
               <img className="icon" alt="" src="/copas.png" />
-
+            </Button>
+            <Button type="button" onClick={() => navigate('/table/open')} variant="dark">
+              <img className="icon" alt="" src="/copas.png" />
+              Mesas Ativas
+              <img className="icon" alt="" src="/copas.png" />
             </Button>
           </Container>
         </div>

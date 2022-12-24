@@ -11,6 +11,7 @@ import Settings from './pages/Settings';
 import Register from './pages/Register';
 import Perfil from './pages/Perfil';
 import PlayersTable from './pages/PlayersTable';
+import Table from './pages/Table';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: '/table',
         element: <PlayersTable />,
+      },
+      {
+        path: 'table/:id/match',
+        element: <Table />,
       },
     ],
   },

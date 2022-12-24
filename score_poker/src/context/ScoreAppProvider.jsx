@@ -3,16 +3,19 @@ import PropTypes from 'prop-types';
 import ScoreAppContext from './ScoreAppContext';
 
 function ScoreAppProvider({ children }) {
-  const [playesTable, setPlayesTable] = useState([]);
+  const [idPlayesTable, setIdPlayesTable] = useState([]);
   const [config, setConfig] = useState();
+  const [players, setPlayers] = useState([]);
 
   const context = useMemo(() => ({
-    playesTable,
+    idPlayesTable,
     config,
+    players,
+    setPlayers,
     setConfig,
-    setPlayesTable,
+    setIdPlayesTable,
   }), [
-    playesTable,
+    idPlayesTable,
     config,
   ]);
 

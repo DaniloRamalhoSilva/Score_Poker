@@ -1,0 +1,36 @@
+.tablePlayers .babel{
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid white;
+  height: 40px; 
+}
+
+.tablePlayers .babel span{
+   flex-grow: 1;
+}
+
+.iconbtnTable{
+  width: 30px;
+  height: 30px;
+  margin-left: 30px;
+  margin-right: 33px;
+}
+
+.btnPosition {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.btnPosition img {
+  width: 80%;
+}
+
+.btnPosition button {
+  width: 100px;
+}
+
+.select  {
+  background-color: rgba(5, 68, 31, 0.507);
+  font-size: 1.2rem;
+}
