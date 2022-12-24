@@ -80,8 +80,15 @@ export const fetchGetMatch = async (id) => {
 };
 
 export const fetchCloseMatch = async (id) => {
-  const match = await scoreFetch.get(`table/${id}`, {
+  const match = await scoreFetch.put(`table/${id}`, {}, {
     headers: getToken(),
   });
   return match;
+};
+
+export const fetchCGetAllOpen = async () => {
+  const tablesOpen = await scoreFetch.get('table/open', {
+    headers: getToken(),
+  });
+  return tablesOpen;
 };

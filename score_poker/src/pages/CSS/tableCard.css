@@ -1,0 +1,29 @@
+.containerTable {
+display: flex;
+flex-wrap: wrap;
+max-height: 75vh;
+overflow-y: scroll;
+}
+
+.cardTable {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(127, 255, 212, 0.384);
+  margin: 2px;
+  padding: 8px;
+  border-radius: 20px;
+  max-width: 160px;
+  color: rgb(34, 17, 1);
+  opacity: 50%;
+}
+
+.containerTable .select {
+  font-size: 1.2rem;
+  border: solid 2px rgba(127, 255, 212, 0.384);
+  opacity: 100%;
+}
+
+.cardTable span {
+  font-size: 1rem;  
+}
+
