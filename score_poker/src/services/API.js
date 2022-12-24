@@ -62,3 +62,12 @@ export const fetchCreateTable = async () => {
   });
   return table;
 };
+
+export const fetchCreateMatch = async (id, userIdFirst, userIdSecond, userIdThird, userIds) => {
+  const match = await scoreFetch.post(`table/${id}/match/podium`, {
+    userIdFirst, userIdSecond, userIdThird, userIds,
+  }, {
+    headers: getToken(),
+  });
+  return match;
+};

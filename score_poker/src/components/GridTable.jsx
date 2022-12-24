@@ -1,17 +1,14 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import { useParams } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import { AVATAR } from '../services/varUteis';
 
 function GrideTable({
-  selectPlayer, addPosition, playesTable, selecionado,
+  selectPlayer, addPosition, playesTable, selecionado, idTable,
 }) {
-  const { id } = useParams();
-
   return (
     <Container className="gridTlable">
-      <h3>{`Mesa #${id}`}</h3>
+      <h3>{`Mesa #${idTable}`}</h3>
       <div className="tablePlayers">
         { playesTable.length !== 0 ? playesTable.map((user) => (
           <Container>
@@ -43,6 +40,7 @@ GrideTable.propTypes = {
   selecionado: propTypes.number.isRequired,
   addPosition: propTypes.func.isRequired,
   selectPlayer: propTypes.func.isRequired,
+  idTable: propTypes.number.isRequired,
 };
 
 export default GrideTable;

@@ -1,5 +1,9 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, {
+  useState, useEffect, useContext,
+} from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Button, Container } from 'react-bootstrap';
+import { fetchCreateMatch } from '../services/API';
 
 import GrideTable from '../components/GridTable';
 import Navigationbar from '../components/Navigationbar';
@@ -10,11 +14,14 @@ import ScoreAppContext from '../context/ScoreAppContext';
 import './CSS/table.css';
 
 function Table() {
+  const navigate = useNavigate();
+  const { id } = useParams();
+
   const [isError, setIsError] = useState(false);
   const [btnEnd, setBtnEnd] = useState(true);
-  const [idFirst, setIdFirst] = useState();
-  const [idSegundo, setidSegundo] = useState();
-  const [idTerceiro, setIdTerceiro] = useState();
+  const [userIdFirst, setUserIdFirst] = useState();
+  const [userIdSecond, setUserIdSecond] = useState();
+  const [userIdThird, setUserIdThird] = useState();
   const [playesTable, setPlayesTable] = useState([]);
   const [selecionado, setSelecionado] = useState();
 
@@ -22,27 +29,38 @@ function Table() {
 
   useEffect(() => {
     setPlayesTable(players.filter((player) => idPlayesTable.includes(player.id)));
-    if (idFirst && idSegundo && idTerceiro) setBtnEnd(false);
-  }, [idFirst, idSegundo, idTerceiro]);
+    if (userIdFirst && userIdSecond && userIdThird) setBtnEnd(false);
+  }, [userIdFirst, userIdSecond, userIdThird]);
 
   const addPosition = (userId) => {
-    if (Number(userId) === Number(idFirst)) return '/primeiro.svg';
-    if (Number(userId) === Number(idSegundo)) return '/segundo.svg';
-    if (Number(userId) === Number(idTerceiro)) return '/terceiro.svg';
+    if (Number(userId) === Number(userIdFirst)) return '/primeiro.svg';
+    if (Number(userId) === Number(userIdSecond)) return '/segundo.svg';
+    if (Number(userId) === Number(userIdThird)) return '/terceiro.svg';
     return '';
   };
 
   const btnPosition1 = () => {
-    if ([idSegundo, idTerceiro].includes(selecionado)) return setIsError({ message: 'O mesmo jogador não pode posuir mais de uma posição' });
-    return setIdFirst(selecionado);
+    if ([userIdSecond, userIdThird].includes(selecionado)) return setIsError({ message: 'O mesmo jogador não pode posuir mais de uma posição' });
+    return setUserIdFirst(selecionado);
   };
   const btnPosition2 = () => {
-    if ([idFirst, idTerceiro].includes(selecionado)) return setIsError({ message: 'O mesmo jogador não pode posuir mais de uma posição' });
-    return setidSegundo(selecionado);
+    if ([userIdFirst, userIdThird].includes(selecionado)) return setIsError({ message: 'O mesmo jogador não pode posuir mais de uma posição' });
+    return setUserIdSecond(selecionado);
   };
   const btnPosition3 = () => {
-    if ([idFirst, idSegundo].includes(selecionado)) return setIsError({ message: 'O mesmo jogador não pode posuir mais de uma posição' });
-    return setIdTerceiro(selecionado);
+    if ([userIdFirst, userIdSecond].includes(selecionado)) return setIsError({ message: 'O mesmo jogador não pode posuir mais de uma posição' });
+    return setUserIdThird(selecionado);
+  };
+
+  const playEnd = () => {
+    fetchCreateMatch(id, userIdFirst, userIdSecond, userIdThird, idPlayesTable).then(() => {
+      navigate('table/:id/match/podium');
+    }).catch(({ response }) => {
+      if (response === undefined) return setIsError({ message: 'Sem conexão com banco de dados' });
+      if (response.data.message === 'Expired or invalid token') return setIsError(response.data);
+      if (response.data.message === 'Token not found') return navigate('/login');
+      return setIsError({ message: 'unexpected error' });
+    });
   };
 
   return (
@@ -55,6 +73,7 @@ function Table() {
           addPosition={addPosition}
           playesTable={playesTable}
           selecionado={selecionado}
+          idTable={id}
         />
         <Container className=" btnPosition">
           <Button onClick={btnPosition1} type="submit" variant="dark">
@@ -68,7 +87,7 @@ function Table() {
           </Button>
         </Container>
         <Container className="d-grid gap-2 mt-2 mb-0">
-          <Button disabled={btnEnd} type="submit" variant="dark">
+          <Button onClick={playEnd} disabled={btnEnd} type="submit" variant="dark">
             <img className="iconbtnTable" alt="" src="/copas.png" />
             Finalizar Partida
             <img className="iconbtnTable" alt="" src="/copas.png" />
