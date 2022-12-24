@@ -1,0 +1,15 @@
+.gridTableRanke{
+  text-align: center;
+  color: rgb(34, 17, 1);
+  table-layout: fixed;
+  box-sizing: border-box;
+  height: 45vh;
+}
+
+.gridTableRanke table{
+  max-width: 500px;
+}
+
+.gridTableRanke td{
+  width: 70%;
+}

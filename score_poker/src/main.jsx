@@ -12,6 +12,7 @@ import Register from './pages/Register';
 import Perfil from './pages/Perfil';
 import PlayersTable from './pages/PlayersTable';
 import Table from './pages/Table';
+import PodioTable from './pages/PodioTable';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -46,6 +47,11 @@ const router = createBrowserRouter([
       {
         path: 'table/:id/match',
         element: <Table />,
+      },
+
+      {
+        path: 'table/:id/match/podium',
+        element: <PodioTable />,
       },
     ],
   },

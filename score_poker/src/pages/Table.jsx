@@ -54,7 +54,7 @@ function Table() {
 
   const playEnd = () => {
     fetchCreateMatch(id, userIdFirst, userIdSecond, userIdThird, idPlayesTable).then(() => {
-      navigate('table/:id/match/podium');
+      navigate(`/table/${id}/match/podium`);
     }).catch(({ response }) => {
       if (response === undefined) return setIsError({ message: 'Sem conexão com banco de dados' });
       if (response.data.message === 'Expired or invalid token') return setIsError(response.data);

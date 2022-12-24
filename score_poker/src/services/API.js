@@ -71,3 +71,17 @@ export const fetchCreateMatch = async (id, userIdFirst, userIdSecond, userIdThir
   });
   return match;
 };
+
+export const fetchGetMatch = async (id) => {
+  const match = await scoreFetch.get(`table/${id}/match/podium`, {
+    headers: getToken(),
+  });
+  return match;
+};
+
+export const fetchCloseMatch = async (id) => {
+  const match = await scoreFetch.get(`table/${id}`, {
+    headers: getToken(),
+  });
+  return match;
+};
