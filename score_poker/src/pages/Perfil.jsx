@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
+import { fetchGetUser } from '../services/API';
+import { AVATAR } from '../services/varUteis';
+
 import AlertM from '../components/Alert';
 import Navigationbar from '../components/Navigationbar';
-import { fetchGetUser } from '../services/API';
 
 import './CSS/perfil.css';
-
-const AVATAR = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgUNaoFwOOa3sOnMoc8CVUJ65bhS822etxVQ&usqp=CAU';
 
 function Perfil() {
   const navigate = useNavigate();
