@@ -1,15 +1,12 @@
 {
   "name": "score_poker",
   "private": true,
-  "version": "1.0.0",
+  "version": "0.0.0",
   "type": "module",
-  "homepage": "https://daniloramalhosilva.github.io/poker",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "serve": "vite preview"
   },
   "dependencies": {
     "axios": "^1.2.1",
