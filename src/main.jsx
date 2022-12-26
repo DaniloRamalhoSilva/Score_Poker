@@ -22,11 +22,11 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: 'score_poker/',
+        path: '/score_poker/',
         element: <Home />,
       },
       {
-        path: 'score_poker/login',
+        path: '/score_poker/login',
         element: <Login />,
       },
       {
