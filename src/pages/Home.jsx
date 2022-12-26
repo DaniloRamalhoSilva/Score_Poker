@@ -22,7 +22,7 @@ function Home() {
         }).catch(({ response }) => {
           if (response === undefined) return setIsError({ message: 'Sem conexão com banco de dados' });
           if (response.data.message === 'Expired or invalid token') return setIsError(response.data);
-          if (response.data.message === 'Token not found') return navigate('/login');
+          if (response.data.message === 'Token not found') return navigate('/score_poker/login');
           return setIsError({ message: 'unexpected error' });
         });
     };
@@ -32,19 +32,19 @@ function Home() {
   return (
     <div>
       <Navigationbar show textHeader="Familia do Poker" />
-      <AlertM message={isError.message} func={() => navigate('/login')} type="Warning" isTrue={isError} />
+      <AlertM message={isError.message} func={() => navigate('/score_poker/login')} type="Warning" isTrue={isError} />
       <Container className="title">
         <h1>Ranking</h1>
       </Container>
       <ImagePodio rank={rank} />
       <GrideRanke className="mt-2" rank={rank} />
       <Container className="d-grid gap-2 mt-2 mb-3">
-        <Button type="button" onClick={() => navigate('/table')} variant="dark">
+        <Button type="button" onClick={() => navigate('/score_poker/table')} variant="dark">
           <img className="icon" alt="" src="/copas.png" />
           Nova Mesa
           <img className="icon" alt="" src="/copas.png" />
         </Button>
-        <Button type="button" onClick={() => navigate('/table/open')} variant="dark">
+        <Button type="button" onClick={() => navigate('/score_poker/table/open')} variant="dark">
           <img className="icon" alt="" src="/copas.png" />
           Mesas Ativas
           <img className="icon" alt="" src="/copas.png" />

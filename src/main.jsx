@@ -22,7 +22,7 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: '/score_poker/',
+        path: '/score_poker',
         element: <Home />,
       },
       {
@@ -30,19 +30,19 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: '/settings',
+        path: '/score_poker/settings',
         element: <Settings />,
       },
       {
-        path: '/register',
+        path: '/score_poker/register',
         element: <Register />,
       },
       {
-        path: '/perfil/:id',
+        path: '/score_poker/perfil/:id',
         element: <Perfil />,
       },
       {
-        path: '/table',
+        path: '/score_poker/table',
         element: <PlayersTable />,
       },
       {
