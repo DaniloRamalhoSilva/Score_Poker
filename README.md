@@ -28,12 +28,10 @@ Banco de dados:
 ## INSTALANDO DEPENDENCIAS
 > Front-end:
 ```bash
-cd api/ 
 npm install
 ``` 
 > Backend
 ```bash
-cd api/ 
 npm install
 ``` 
 ## EXECULTANDO APLICAÇÃO
