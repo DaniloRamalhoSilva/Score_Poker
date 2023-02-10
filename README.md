@@ -2,7 +2,7 @@
 
 ## OBJETIVO
 Este aplicação foi desenvolvida para treinar minhas habilidades de programador e para sanar um problema de rankeamento de pontos.
-Ela nada mais é do que um marcador de pontos, que criando um rankin levando em consideração o desempenho individual e o desempenho em relação ao grupo, usado nas partidas de poker da minha familha.
+Ela nada mais é do que um marcador de pontos, que cria um rankin levando em consideração o desempenho individual e o desempenho em relação ao grupo, usado nas partidas de poker da minha familha.
 
 ## PROBLEMATICA
 Minha familia e bem grande e sempre nos reunimos para jogar poker, temos 27 jogadores, o sistema de pontuação acotece da seguinte maneira: Primeiro reunimos os jogadores disponiveis no dia (media de 8 pessoas, nem sempre todos estão disponiveis no mesmo dia), então dividimos as fixas e começamos a partida, ao final da partida os tres ultimos jogatores rebebem pontuação, o primeiro que ganhou todas as fixas 10 pontos, o que perdeu por ultimo 5 pontos, e o antepenultimo 3 pontos, e uma nova partida e iniciada. Os pontos são contabilizados em um rankin que e postado em um grupo no fecebook onde estão todos os participantes e podemos acompanhar a evolução.
