@@ -1,3 +1,5 @@
+# Marcador de Pontos
+
 ## OBJETIVO
 Este aplicação foi desenvolvida para treinar minhas habilidades de programador e para sanar um problema de rankeamento de pontos.
 Ela nada mais é do que um marcador de pontos, que criando um rankin levando em consideração o desempenho individual e o desempenho em relação ao grupo, usado nas partidas de poker da minha familha.
@@ -10,31 +12,43 @@ O problema é que sempre achei meio injusto esse rankin ja que algumas pessoas j
 Funciona da seguinte maneira, alem da pontuação ja explicada anteriormente a aplicação analiza a quantidade de vezes que a pessoa jogou e a sua pontuação, criando um desempenho individual ex: (joguei 10 partidas, então se eu tivesse ganhado todas em primeiro teria 100 pontos e meu desenpenho individual seria de 100%).
 A aplicação leva em cosideração esses dois fatores (Desempenho em relação ao grupo + desempenho individual) e assim gera um ranking mais justo.
 
-## TECNOLOGIAS
-### FRONT-END
-react
-vite
-bootstrap
+## TECNOLOGIAS e FRAMEWORKS USADAS
+Front-end:
+> Desenvolvido usando: React, Redux, CSS3, Bootstrap, Vite, JavaScript ES6
 
-### BACK-END
-Arquitetura MSC (model-service-controller)
-express
-joi
-mysql2
-sequelize
+Back-end:
+> Desenvolvido usando: Arquitetura MSC, NodeJS, ExpressJS, Sequelize, MYSQL2, JavaScript ES6, Joi
 
-### BANCO DE DADOS
-MySQL
+Banco de dados:
+> MyAQL
 
-## INSTRUÇOES DEV
-#FRONT-END
-para subir o servidor rode o comando: npm run dev
+## INSTALANDO DEPENDENCIAS
+> Front-end:
+```bash
+cd api/ 
+npm install
+``` 
+> Backend
+```bash
+cd api/ 
+npm install
+``` 
+## EXECULTANDO APLICAÇÃO
+* Para rodar o front-end:
 
-#BACK-END
-para subir o servidor rode o comando: npm start
-(o comando ira rodar o prestart, crinado o banco de dados e as tabelas usando o sequelize).
-se preferir pode rodar o comando: npm run prestart
-e em seguina o nodemon com o comando: npm run debug
-
-
-
+  ```bash
+    npm run dev
+  ```
+* Para rodar o back-end:
+  (o comando ira rodar o prestart, crinado o banco de dados e as tabelas usando o sequelize).
+  
+  ```bash
+  npm start
+  ```
+  
+* Para rodar o back-end como dev:
+  
+  ```bash
+  npm run prestart
+  npm run debug
+  ```
