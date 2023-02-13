@@ -1,4 +1,5 @@
 # Marcador de Pontos
+![WhatsApp Image 2023-02-13 at 18 21 35](https://user-images.githubusercontent.com/69921664/218579998-89de4875-af79-409c-95b6-34843d3f79ca.jpeg)
 
 ## OBJETIVO
 Este aplicação foi desenvolvida para treinar minhas habilidades de programador e para sanar um problema de ranqueamento de pontos. Ela nada mais é do que um marcador de pontos, que cria um ranking levando em consideração o desempenho individual e o desempenho em relação ao grupo, usado nas partidas de poker da minha família.
